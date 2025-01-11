@@ -6,7 +6,6 @@ export function SecondCard({ Next, Back, formData, handleInputChange }) {
   const [phoneNumberError, setPhoneNumberError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
-  // const nameRegex = /^[A-Za-z]+$/;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const phoneNumberRegex=/^\d{8,}$/
 
@@ -14,13 +13,7 @@ export function SecondCard({ Next, Back, formData, handleInputChange }) {
     const value = e.target.value.trim();
     if (value === ""){
       setEmailError("Email cannot be empty.")
-    } else if (!emailRegex.test(value)) 
-        // else if (
-        //   !value.includes("@") || 
-        //   !value.includes(".") || 
-        //   !nameRegex.test(value)
-        // ) 
-    {
+    } else if (!emailRegex.test(value)) {
       setEmailError("Please provide a valid email address.")
     } else {
       setEmailError(" ");
