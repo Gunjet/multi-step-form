@@ -35,12 +35,20 @@ export function SecondCard({ Next, Back, formData, handleInputChange }) {
 
   const handlePasswordChange = (e) => {
     const value = e.target.value.trim();
-    if (value === ""){
-      setPasswordError("Password cannot be empty.")
-    } else{
-      setPasswordError(" ");
+    const letterAndNumberRegex = /^(?=.*[A-Za-z])(?=.*\d)/;
+    const minLengthRegex = /.{8,}/;
+    
+    if (value === "") {
+      setPasswordError("Password cannot be empty.");
+    } else if (!minLengthRegex.test(value)) {
+      setPasswordError("Password must be at least 8 characters long.");
+    } else if (!letterAndNumberRegex.test(value)) {
+      setPasswordError("Password must contain at least one letter and one number.");
+    } else {
+      setPasswordError(" "); 
     }
-    handleInputChange("password", value)
+  
+    handleInputChange("password", value);
   }
 
   const handleConfirmPasswordChange = (e) => {
@@ -88,7 +96,6 @@ export function SecondCard({ Next, Back, formData, handleInputChange }) {
             <p className="font-semibold">Password *</p>
             <input
               type="password"
-
               onChange={handlePasswordChange}
               className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
               placeholder="Enter your password"
@@ -98,8 +105,6 @@ export function SecondCard({ Next, Back, formData, handleInputChange }) {
           <div className="w-[416px] h-[68px]">
             <p className="font-semibold my-[2px]">Confirm password *</p>
             <input
-              
-
               onChange={handleConfirmPasswordChange}
               className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
               placeholder="Enter your password again"
