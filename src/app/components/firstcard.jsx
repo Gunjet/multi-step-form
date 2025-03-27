@@ -53,38 +53,53 @@ export default function Card({ Next, formData, handleInputChange }) {
           <p className="text-[26px] font-semibold">Join Us! 😎</p>
           <p className="text-[18px] text-[#8E8E8E]">Please provide all current information accurately.</p>
         </div>
-        <div className="w-[416px] h-[228px] my-[25px] flex flex-col justify-between">
-          <div className="w-[416px] h-[68px]">
-            <p className="font-semibold my-[2px]">First name *</p>
-            <input
-              value={formData.firstName}
-              onChange={handleFirstNameChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your first name"
-            />
-            {firstNameError && <p className="text-red-500 text-sm mt-1">{firstNameError}</p>}
-          </div>
-          <div className="w-[416px] h-[68px]">
-            <p className="font-semibold my-[2px]">Last name *</p>
-            <input
-              value={formData.lastName}
-              onChange={handleLastNameChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your last name"
-            />
-            {lastNameError && <p className="text-red-500 text-sm mt-1">{lastNameError}</p>}
-          </div>
-          <div className="w-[416px] h-[68px] my-[2px]">
-            <p className="font-semibold">Username *</p>
-            <input
-              
-              onChange={handleUserNameChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your username"
-            />
-            {userNameError && <p className="text-red-500 text-sm mt-1">{userNameError}</p>}
-          </div>
-        </div>
+        <div className="w-[416px] my-[25px] flex flex-col gap-2">
+  <div className={`relative w-[416px] min-h-[68px] ${firstNameError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">First name *</p>
+    <input
+      value={formData.firstName}
+      onChange={handleFirstNameChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your first name"
+    />
+    {firstNameError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {firstNameError}
+      </p>
+    )}
+  </div>
+
+  <div className={`relative w-[416px] min-h-[68px] ${lastNameError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">Last name *</p>
+    <input
+      value={formData.lastName}
+      onChange={handleLastNameChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your last name"
+    />
+    {lastNameError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {lastNameError}
+      </p>
+    )}
+  </div>
+
+  <div className={`relative w-[416px] min-h-[68px] ${userNameError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">Username *</p>
+    <input
+      value={formData.userName}
+      onChange={handleUserNameChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your username"
+    />
+    {userNameError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {userNameError}
+      </p>
+    )}
+  </div>
+</div>
+
       </div>
       <button
         onClick={Next}

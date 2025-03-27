@@ -71,47 +71,68 @@ export function SecondCard({ Next, Back, formData, handleInputChange }) {
           <p className="text-[26px] font-semibold">Join Us! 😎</p>
           <p className="text-[18px] text-[#8E8E8E]">Please provide all current information accurately.</p>
         </div>
-        <div className="w-[416px] h-[308px] my-[25px] flex flex-col justify-between">
-          <div className="w-[416px] h-[68px]">
-            <p className="font-semibold my-[2px]">Email *</p>
-            <input
-              value={formData.email}
-              onChange={handleEmailChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your email"
-            />
-            {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}   
-          </div>
-          <div className="w-[416px] h-[68px]">
-            <p className="font-semibold my-[2px]">Phone number *</p>
-            <input
-              value={formData.phoneNumber}
-              onChange={handlePhoneNumberChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your phone number"
-            />
-            {phoneNumberError && <p className="text-red-500 text-sm mt-1">{phoneNumberError}</p>} 
-          </div>
-          <div className="w-[416px] h-[68px] my-[2px]">
-            <p className="font-semibold">Password *</p>
-            <input
-              type="password"
-              onChange={handlePasswordChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your password"
-            />
-            {passwordError && <p className="text-red-500 text-sm mt-1">{passwordError}</p>} 
-          </div>
-          <div className="w-[416px] h-[68px]">
-            <p className="font-semibold my-[2px]">Confirm password *</p>
-            <input
-              onChange={handleConfirmPasswordChange}
-              className="w-[416px] h-[44px] padding-2 border-[1px] border-[#CBD5E1] rounded-md pl-2"
-              placeholder="Enter your password again"
-            />
-            {confirmPasswordError && <p className="text-red-500 text-sm mt-1">{confirmPasswordError}</p>} 
-          </div>
-        </div>
+        <div className="w-[416px] my-[25px] flex flex-col justify-between gap-2">
+
+  <div className={`relative w-[416px] min-h-[68px] ${emailError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">Email *</p>
+    <input
+      value={formData.email}
+      onChange={handleEmailChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your email"
+    />
+    {emailError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {emailError}
+      </p>
+    )}
+  </div>
+
+  <div className={`relative w-[416px] min-h-[68px] ${phoneNumberError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">Phone number *</p>
+    <input
+      value={formData.phoneNumber}
+      onChange={handlePhoneNumberChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your phone number"
+    />
+    {phoneNumberError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {phoneNumberError}
+      </p>
+    )}
+  </div>
+  <div className={`relative w-[416px] min-h-[68px] ${passwordError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">Password *</p>
+    <input
+      type="password"
+      onChange={handlePasswordChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your password"
+    />
+    {passwordError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {passwordError}
+      </p>
+    )}
+  </div>
+
+  <div className={`relative w-[416px] min-h-[68px] ${confirmPasswordError ? "pb-5" : ""}`}>
+    <p className="font-semibold my-[2px]">Confirm password *</p>
+    <input
+      type="password"
+      onChange={handleConfirmPasswordChange}
+      className="w-[416px] h-[44px] border-[1px] border-[#CBD5E1] rounded-md pl-2"
+      placeholder="Enter your password again"
+    />
+    {confirmPasswordError && (
+      <p className="text-red-500 text-sm absolute top-[calc(90%_-_1px)] left-0">
+        {confirmPasswordError}
+      </p>
+    )}
+  </div>
+</div>
+
       </div>
       <div className="w-[416px] h-[44px] absolute my-[580px] justify-between flex">
         <button
